@@ -21,7 +21,6 @@ public class ListIterator {
     public CharData next() {
         CharData cd = current.cp;
         current = current.next;
-        int a; //check
         return cd;
     }
 }
