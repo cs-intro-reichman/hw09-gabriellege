@@ -99,21 +99,18 @@ public class LanguageModel {
      */
 
     public String generate(String initialText, int textLength) {
-        if (initialText.length() < windowLength) {
+        if (initialText.length() < windowLength)
             return initialText;
-        }
-        StringBuilder result = new StringBuilder(initialText);
+        String result = initialText;
         while (result.length() < textLength) {
-            int start = result.length() - windowLength;
-            String currentWindow = result.substring(start);
-            List nextChars = CharDataMap.get(currentWindow);
-            if (nextChars == null) {
+            String window = result.substring(result.length() - windowLength);
+            List list = CharDataMap.get(window);
+            if (list == null)
                 break;
-            }
-            char next = getRandomChar(nextChars);
-            result.append(next);
+            char nextChar = getRandomChar(list);
+            result += nextChar;
         }
-        return result.toString();
+        return result;
     }
 
     /** Returns a string representing the map of this language model. */
