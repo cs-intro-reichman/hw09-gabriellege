@@ -47,16 +47,16 @@ public class List {
 
     /** GIVE Textual representation of this list. */
     public String toString() {
-        String s = "(";
+        String str = "(";
         Node current = first;
         while (current != null) {
-            s += current.cp.toString();
+            str += current.cp.toString();
             if (current.next != null)
-                s += " ";
+                str += " ";
             current = current.next;
         }
-        s += ")";
-        return s;
+        str += ")";
+        return str;
     }
 
     /**
